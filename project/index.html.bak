@@ -80,7 +80,7 @@ function switchIframe(whichOne) {
       } else if (whichOne == 2) {
         iframesource = document.URL + "/../hq_explorer/hq_explorer.html";
       } else if (whichOne == 3) {
-        iframesource = document.URL + "/../hq_citystats/citystats.html";
+        iframesource = document.URL + "";
       } else if (whichOne == 4) {
         iframesource = document.URL + "/../hq_airdesireability/airdesireability.html";
       } else if (whichOne == 5) {
