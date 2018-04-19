@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>HQ 2 City Finder</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/simple.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+		table,
+		th,
+		td {
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			padding: 5px;
+		}
+
+		a.evo {
+			font-size: small;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<textarea data-template>
+				## HQ 2 City Finder
+
+				<p>by Mike Frazzini, Dan Wald, and Todd Young</p>
+				<p>UC Berkeley MIDS</p>
+
+				</textarea>
+			</section>
+			<section>If your company needed to choose a city for a second headquarters, how would you choose that city?</section>
+			<section><b>Amazon chose to prioritize:</b>
+				<p style="font-size:90%">
+					large metropolitan areas
+					<br>with a business-friendly environment,
+					<br>good quality of life to attract and keep talent,
+					<br>and direct flights to existing facilities,
+					<br>and other factors.
+				</p>
+			</section>
+			<section><b>HQ 2 City Finder</b> is a data exploration tool to help choose a location for your company's new HQ. </section>
+			<section><b>HQ 2 City Finder</b> was designed to support:
+				<p></p>
+				<table width="110%" style="font-size:80%;">
+					<tr>
+						<td>
+							<table style="font-size:70%;">
+								<tr>
+									<th>
+										Users
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<ul>
+											<li>Business executives</li>
+											<li>HR professionals</li>
+											<li>Frequent travelers</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table style="font-size:70%;">
+								<tr>
+									<th>
+										Tasks
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<ul>
+											<li>Ranking candidate expansion cities</li>
+											<li>Exploring quality of life in those cities</li>
+											<li>Exploring airport city characteristics</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table style="font-size:70%;">
+								<tr>
+									<th>
+										Data
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<ul>
+											<li>Travel: <a href="https://www.transtats.bts.gov/tables.asp?db_id=110&DB_Name=" target="_blank"> US Department of Transportation </a></li>
+											<li>Quality of life: <a href="https://www.nerdwallet.com/blog/credit-cards/best-cities-for-quality-of-life/#data" target="_blank">Nerd Wallet</a>  </li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section>
+				<section><b>HQ 2 City Finder</b> includes four visualizations:
+					<ol style="font-size:70%;">
+						<li>
+							<p class="fragment"><b>Air Travel</b>, for exploring the availability of direct flights to from existing locations to the candidate cities.</p>
+						</li>
+						<li>
+							<p class="fragment"><b>City Quality of Life</b>, for exploring commute times, housing afforadability, unemployment, povery, health care access</p>
+						</li>
+						<li>
+							<p class="fragment"><b>Air Migration</b>, for understanding which cities are attracting new residents, and which are losing people.</p>
+						</li>
+						<li>
+							<p class="fragment"><b>Air Efficiency</b>, for understanding which airports do the best job in managing efficient air travel, as a proxy for limiting the environmental impact of air travel.</p>
+						</li>
+					</ol>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+					Click down for description of technologies we used.
+				</a>
+				</section>
+				<section>
+					Technology Overview
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: x-large'>
+						these are notes about
+						<br>the technology
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="technology.png" style='border:0px'>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					Air Travel
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: x-large; text-align: left'>
+						Choose all the cities with existing facilities,
+						<br>then explore direct flight availability to/from candidate cities.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Final Version Comments
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+					Incorporated combined user testing feedback: priority to filters and sortable to support task, then use the map as supporting info.
+					<br><br>Color scheme changed to mirror 'stock' dashboards to assist with non-technical interpretation of good / bad matches.
+					<br><br>Travel score developed and ranked based on weights of filters, documented on the dashboard.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Version 7
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+					Incorporated early user testing feedback to move city selection front and center and highlight scoring.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel5.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Version 6
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+					Incorporated group comments in preparation for user testing.  Airports grouped by city and state.
+					<br><br>Many fixes were behind the scenes such as matching cities to the correct state (Portland, OR vs. Portland, ME).
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel4.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Version 5
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+					Incorporated group comments re: user testing to allow for multiple city selection.
+					<br><br>Added 'seats' attribute filter to reveal capacity as flight flexibility proxy.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel3.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Version 4
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						Incorporated Balsamic principles to mirror intended workflow for a single city.
+						<br><br>Concentration on building route map within Tableau was central focus of this effort which requires unique data manipulation.
+						<br><br>Added a derived variable: airport-to-city center commute time. Variable created based on arc distance of geo-tags.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel2.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Travel Version 3
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						This was a strong start with showing city air traffic in D3, but realized quickly we would be spending more time debugging javascript than driving interactive insights into US city air travel.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel1_5.jpg" style='border:0px'>
+					</div>
+				</section>
+				<section>
+					Air Travel Version 2
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						This was the task-based Balsamiq mockup of the interface.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel_b.png" style='border:0px'>
+					</div>
+				</section>
+				<section>
+					Air Travel Version 1
+					<div style='position: absolute; top: 120px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						This was the baseline model.  This dashboard was built for pure exploration of data.  Very hard to draw insights without study and understanding of the dataset.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airtravel1.png" style='border:0px'>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					City Quality of Life
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: x-large; text-align: left'>
+						Specify <b>quality of life</b> filters to compare candidate cities.
+						<br><br>Colors reflect percentile ranking from worst (red) to best (green) among all US cities with population >150K.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="QOLfinal.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					City Quality of Final Version Comments
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						We changed the layout to make it more readable, and we grouped the filters and labeled them clearly.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="QOLfinal.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+				</section>
+				<section>
+					City Quality of Life Version 3
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						Although the Flourish implementation provided a beautiful view of the data, it lacked the important functionality of being able to filter the cities based on the user's QOL criteria.
+						<br><br>For this version, we moved back to Tableau.
+						<br><br>We split out the component factors in the QOL ranking from Nerd Wallet to allow the user more control.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="QOL3.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+				</section>
+				<section>
+					City Quality of Life Version 2
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						The initial Tableau view was not as beautiful as the Flourish implementation, so we went with this for user testing.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="QOL2.jpg"  style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+				</section>
+				<section>
+					City Quality of Life Version 1
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						This was an initial Tableau implementation for City QOL.  We user the QOL index from Nerd Wallet.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="QOL1.png"  style='border:0px'>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					Air Migration
+					<div style='position: absolute; top: 150px; left: -100px; width: 250px; height: 400px; font-size: x-large; text-align: left'>
+						This viz shows net air migration to airport cities across the U.S. by year from 2002 to 2017.
+						<br><br> Consistent yearly net positive migration may be a proxy for desirability.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="migration.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Migration Final Version Comments
+					<div style='position: absolute; top: 130px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						After initial user testing, we removed the play button.  This version was used for subsequent user testing.
+						<br><br>Flourish does a nice job of comparative storytelling, so we let the data speak for itself.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="migration.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+				</section>
+				<section>
+					Air Migration Version 1
+					<div style='position: absolute; top: 130px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						During our exploratory analysis, we found an interesting and surprising net air migration to certain cities.
+						<br><br>We decided to show this to our users to support their search task.
+						<br><br>The initial version included an auto-play button and selection for the candidate airport as a drop-down list.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airmigration1.jpg" style='border:0px'>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					Air Efficiency
+					<div style='position: absolute; top: 130px; left: -100px; width: 250px; height: 400px; font-size: x-large; text-align: left'>
+						Corporate leaders may consider managing environmental impact of their air travel to be important.
+						<br><br>This viz shows which airports do the best job of efficient operations, as measured by percent of seats filled on flights.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="efficiency.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+				</section>
+				<section>
+					Air Efficiency Final Version Comments
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						After initial user testing, we removed the play button.  This version was used for subsequent user testing.
+						<br><br>Flourish does a nice job of comparative storytelling, so we let the data speak for itself.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="efficiency.png" style='border:0px'>
+					</div>
+					<a href="#" class="navigate-down" style='font-size:large; color:black'>
+						Click down for previous verions of this viz.
+					</a>
+					<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+				</section>
+				<section>
+					Air Efficiency Version 1
+					<div style='position: absolute; top: 200px; left: -100px; width: 250px; height: 400px; font-size: large; text-align: left'>
+						The initial version was developed to mirror the style of the Net Migration viz.
+					</div>
+					<div style='position: relative; left: 200px; top: 30px; width: 800px; height: 600px'>
+						<img src="airefficiency1.png" style='border:0px'>
+					</div>
+				</section>
+			</section>
+			<section>
+				Now, go explore!
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			// Parallax background image
+			parallaxBackgroundImage: 'city4.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+			// Parallax background size
+			parallaxBackgroundSize: '2100px 900px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+			// Number of pixels to move the parallax background per slide
+			// - Calculated automatically unless specified
+			// - Set to 0 to disable movement along an axis
+			parallaxBackgroundHorizontal: 40,
+			parallaxBackgroundVertical: 0,
+			viewDistance: 3,
+			transition: 'fade',
+
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				//{
+				// Set default timing of 2 minutes per slide
+				//	defaultTiming: 120,
+				//},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
