@@ -49,6 +49,7 @@ crossorigin="anonymous">
         <li><a href="#" onclick="switchIframe(3); return false;">City Quality of Life</a></li>
         <li><a href="#" onclick="switchIframe(4); return false;">Air Migration</a></li>
         <li><a href="#" onclick="switchIframe(5); return false;">Air Efficiency</a></li>
+        <li><a href="#" onclick="switchIframe(6); return false;">Tutorial</a></li>
        </ul>
     </div>
   </nav>
@@ -85,6 +86,8 @@ function switchIframe(whichOne) {
         iframesource = document.URL + "/../hq_airdesireability/airdesireability.html";
       } else if (whichOne == 5) {
         iframesource = document.URL + "/../hq_airefficiency/efficiency.html";
+      } else if (whichOne == 6) {
+        iframesource = "http://people.ischool.berkeley.edu/~todd.young/reveal.js-3.6.0/index.html";
       }
 
 
